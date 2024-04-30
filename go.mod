@@ -19,10 +19,7 @@ require (
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/shirou/gopsutil/v3 v3.23.4
 	github.com/sirupsen/logrus v1.9.0
-<<<<<<< HEAD
-=======
 	github.com/spf13/cast v1.5.0
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.15.0
 	github.com/stretchr/testify v1.8.2
