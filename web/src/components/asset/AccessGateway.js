@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 
 import {Badge, Button, Layout, Popconfirm, Tag, Tooltip} from "antd";
@@ -8,6 +9,18 @@ import ColumnState, {useColumnState} from "../../hook/column-state";
 import Show from "../../dd/fi/show";
 
 const {Content} = Layout;
+=======
+import React, { useState } from 'react';
+
+import { Badge, Button, Layout, Popconfirm, Tag, Tooltip } from "antd";
+import accessGatewayApi from "../../api/access-gateway";
+import { ProTable } from "@ant-design/pro-components";
+import AccessGatewayModal from "./AccessGatewayModal";
+import ColumnState, { useColumnState } from "../../hook/column-state";
+import Show from "../../dd/fi/show";
+
+const { Content } = Layout;
+>>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 
 const api = accessGatewayApi;
 
@@ -27,6 +40,15 @@ const AccessGateway = () => {
             width: 48,
         },
         {
+<<<<<<< HEAD
+=======
+            title: '网关类型',
+            dataIndex: 'gatewayType',
+            key: 'gatewayType',
+            hideInSearch: true
+        },
+        {
+>>>>>>> a088c805435ef66473494ece77c9bc914cade24d
             title: '名称',
             dataIndex: 'name',
         },
@@ -51,10 +73,12 @@ const AccessGateway = () => {
                     return (
                         <Tag color="green">密钥</Tag>
                     );
-                } else {
+                } else if (accountType === 'password') {
                     return (
                         <Tag color="red">密码</Tag>
                     );
+                } else {
+                    return <>-</>
                 }
             }
         }, {
@@ -71,13 +95,17 @@ const AccessGateway = () => {
                 if (text) {
                     return (
                         <Tooltip title='连接成功'>
-                            <Badge status="success" text='已连接'/>
+                            <Badge status="success" text='已连接' />
                         </Tooltip>
                     )
                 } else {
                     return (
                         <Tooltip title={record['message']}>
+<<<<<<< HEAD
                             <Badge status="default" text='已断开'/>
+=======
+                            <Badge status="default" text='已断开' />
+>>>>>>> a088c805435ef66473494ece77c9bc914cade24d
                         </Tooltip>
                     )
                 }

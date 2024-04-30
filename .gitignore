@@ -24,6 +24,12 @@ web/build
 # next terminal
 /data/
 /logs/
+<<<<<<< HEAD
+=======
+
+/web/build/*
+/server/resource/build/*
+>>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 /server/resource/static/
 /server/resource/*.html
 /server/resource/*.json
