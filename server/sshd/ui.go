@@ -6,10 +6,7 @@ import (
 	"fmt"
 	"io"
 	"path"
-<<<<<<< HEAD
-=======
 	"sort"
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 	"strings"
 
 	"next-terminal/server/api"
