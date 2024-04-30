@@ -373,7 +373,7 @@ class FileSystem extends Component {
         this.setState({
             currentFileKey: key,
             fileName: name,
-            fileContent: fileContent + "",
+            fileContent: fileContent,
             editorVisible: true
         })
         message.destroy(key);

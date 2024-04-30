@@ -231,6 +231,14 @@ func (r assetRepository) FindAttrById(c context.Context, assetId string) (o []mo
 	return o, err
 }
 
+<<<<<<< HEAD
+=======
+func (r assetRepository) FindAssetByName(c context.Context, name string, protocol string) (o model.Asset, err error) {
+	err = r.GetDB(c).Where("name = ? and protocol = ?", name, protocol).First(&o).Error
+	return
+}
+
+>>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 func (r assetRepository) FindAssetAttrMapByAssetId(c context.Context, assetId string) (map[string]string, error) {
 	asset, err := r.FindById(c, assetId)
 	if err != nil {
