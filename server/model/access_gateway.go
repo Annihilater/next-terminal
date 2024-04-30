@@ -7,10 +7,7 @@ import (
 // AccessGateway 接入网关
 type AccessGateway struct {
 	ID          string          `gorm:"primary_key,type:varchar(36)" json:"id"`
-<<<<<<< HEAD
-=======
 	GatewayType string          `gorm:"type:varchar(50)" json:"gatewayType"`
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 	Name        string          `gorm:"type:varchar(500)" json:"name"`
 	IP          string          `gorm:"type:varchar(500)" json:"ip"`
 	Port        int             `gorm:"type:int(5)" json:"port"`
@@ -28,10 +25,7 @@ func (r *AccessGateway) TableName() string {
 
 type AccessGatewayForPage struct {
 	ID          string          `json:"id"`
-<<<<<<< HEAD
-=======
 	GatewayType string          `json:"gatewayType"`
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 	Name        string          `json:"name"`
 	IP          string          `json:"ip"`
 	Port        int             `json:"port"`

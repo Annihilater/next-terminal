@@ -25,20 +25,6 @@ const handleError = (error) => {
 };
 
 const handleResult = (result) => {
-<<<<<<< HEAD
-    if (result['code'] === 401) {
-        window.location.href = '#/login';
-        return false;
-    }if (result['code'] === 403) {
-        window.location.href = '#/permission-denied';
-        return false;
-    } else if (result['code'] === 100) {
-        return true;
-    } else if (result['code'] !== 1) {
-        message.error(result['message']);
-        return false;
-    }
-=======
   if (result['code'] === 401) {
     window.location.href = '#/login';
     return false;
@@ -47,7 +33,6 @@ const handleResult = (result) => {
     window.location.href = '#/permission-denied';
     return false;
   } else if (result['code'] === 100) {
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
     return true;
   } else if (result['code'] !== 1) {
     message.error(result['message']);
@@ -60,51 +45,6 @@ const request = {
   get: function (url) {
     const headers = getHeaders();
 
-<<<<<<< HEAD
-    get: function (url) {
-        const headers = getHeaders();
-
-        return new Promise((resolve, reject) => {
-            axios.get(url, {headers: headers})
-                .then((response) => {
-                    let contentType = response.headers['content-type'];
-                    if (contentType !== '' && contentType.includes('application/json')) {
-                        handleResult(response.data);
-                    }
-                    resolve(response.data);
-                })
-                .catch((error) => {
-                    if (!handleError(error)) {
-                        return;
-                    }
-                    reject(error);
-                });
-        })
-    },
-
-    post: function (url, params, header) {
-
-        const headers = getHeaders();
-        if (header) {
-            for (const k in header) {
-                headers[k] = header[k];
-            }
-        }
-
-
-        return new Promise((resolve, reject) => {
-            axios.post(url, params, {headers: headers})
-                .then((response) => {
-                    handleResult(response.data);
-                    resolve(response.data);
-                })
-                .catch((error) => {
-                    if (!handleError(error)) {
-                        return;
-                    }
-                    reject(error);
-                });
-=======
     return new Promise((resolve, reject) => {
       fetch(url, { headers })
         .then((response) => {
@@ -119,7 +59,6 @@ const request = {
             handleResult(result);
           }
           resolve(result);
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
         })
         .catch((error) => {
           if (!handleError(error)) {
@@ -138,29 +77,12 @@ const request = {
       }
     }
 
-<<<<<<< HEAD
-        const headers = getHeaders();
-
-        return new Promise((resolve, reject) => {
-            axios.put(url, params, {headers: headers})
-                .then((response) => {
-                    handleResult(response.data);
-                    resolve(response.data);
-                })
-                .catch((error) => {
-                    if (!handleError(error)) {
-                        return;
-                    }
-                    reject(error);
-                });
-=======
     return new Promise((resolve, reject) => {
       axios
         .post(url, params, { headers: headers })
         .then((response) => {
           handleResult(response.data);
           resolve(response.data);
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
         })
         .catch((error) => {
           if (!handleError(error)) {
@@ -174,27 +96,12 @@ const request = {
   put: function (url, params) {
     const headers = getHeaders();
 
-<<<<<<< HEAD
-        return new Promise((resolve, reject) => {
-            axios.delete(url, {headers: headers})
-                .then((response) => {
-                    handleResult(response.data);
-                    resolve(response.data);
-                })
-                .catch((error) => {
-                    if (!handleError(error)) {
-                        return;
-                    }
-                    reject(error);
-                });
-=======
     return new Promise((resolve, reject) => {
       axios
         .put(url, params, { headers: headers })
         .then((response) => {
           handleResult(response.data);
           resolve(response.data);
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
         })
         .catch((error) => {
           if (!handleError(error)) {
@@ -208,27 +115,12 @@ const request = {
   delete: function (url) {
     const headers = getHeaders();
 
-<<<<<<< HEAD
-        return new Promise((resolve, reject) => {
-            axios.patch(url, params, {headers: headers})
-                .then((response) => {
-                    handleResult(response.data);
-                    resolve(response.data);
-                })
-                .catch((error) => {
-                    if (!handleError(error)) {
-                        return;
-                    }
-                    reject(error);
-                });
-=======
     return new Promise((resolve, reject) => {
       axios
         .delete(url, { headers: headers })
         .then((response) => {
           handleResult(response.data);
           resolve(response.data);
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
         })
         .catch((error) => {
           if (!handleError(error)) {

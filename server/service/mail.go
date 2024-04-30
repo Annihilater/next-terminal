@@ -2,13 +2,9 @@ package service
 
 import (
 	"context"
-<<<<<<< HEAD
-	"fmt"
-=======
 	"crypto/tls"
 	"fmt"
 	"github.com/spf13/cast"
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 	"net/smtp"
 	"next-terminal/server/common/nt"
 

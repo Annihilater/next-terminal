@@ -21,9 +21,5 @@ guacd:
 sshd:
   enable: true
   addr: 0.0.0.0:2022
-<<<<<<< HEAD
-  key: ~/.ssh/id_rsa
-=======
   key: ~/.ssh/id_rsa
   authorized-keys: ~/.ssh/authorized_keys
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d

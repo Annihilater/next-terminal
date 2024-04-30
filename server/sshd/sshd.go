@@ -109,16 +109,12 @@ func (sshd sshd) sessionHandler(sess ssh.Session) {
 		_ = sess.Close()
 	}()
 
-<<<<<<< HEAD
-	username := sess.User()
-=======
 	rawReq := strings.Split(sess.User(), "@")
 	username := rawReq[0]
 	if len(rawReq) == 2 {
 		assetname := rawReq[1]
 		sess.Context().SetValue("publicKeyAsset", assetname)
 	}
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 	remoteAddr := strings.Split(sess.RemoteAddr().String(), ":")[0]
 
 	user, err := repository.UserRepository.FindByUsername(context.TODO(), username)
@@ -131,10 +127,6 @@ func (sshd sshd) sessionHandler(sess ssh.Session) {
 		return
 	}
 
-<<<<<<< HEAD
-	// 判断是否需要进行双因素认证
-	if user.TOTPSecret != "" && user.TOTPSecret != "-" {
-=======
 	if sess.PublicKey() != nil {
 		publicKeyComment, ok := sess.Context().Value("publicKeyComment").(string)
 		if publicKeyComment == "" && !ok {
@@ -149,23 +141,17 @@ func (sshd sshd) sessionHandler(sess ssh.Session) {
 
 	// 判断是否需要进行双因素认证
 	if user.TOTPSecret != "" && user.TOTPSecret != "-" && sess.PublicKey() == nil {
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 		sshd.gui.totpUI(sess, user, remoteAddr, username)
 	} else {
 		// 保存登录日志
 		_ = service.UserService.SaveLoginLog(remoteAddr, "terminal", username, true, false, utils.LongUUID(), "")
-<<<<<<< HEAD
-=======
 		if sess.PublicKey() != nil {
 			_, _ = io.WriteString(sess, "\n公钥认证成功\n")
 		}
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 		sshd.gui.MainUI(sess, user)
 	}
 }
 
-<<<<<<< HEAD
-=======
 func (sshd sshd) publicKeyAuth(ctx ssh.Context, key ssh.PublicKey) bool {
 	if len(config.GlobalCfg.Sshd.AuthorizedKeys) == 0 {
 		return false
@@ -220,7 +206,6 @@ func (sshd sshd) publicKeyAuth(ctx ssh.Context, key ssh.PublicKey) bool {
 	return false
 }
 
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 func (sshd sshd) Serve() {
 	ssh.Handle(func(s ssh.Session) {
 		_, _ = io.WriteString(s, branding.Hi)
@@ -231,10 +216,7 @@ func (sshd sshd) Serve() {
 	err := ssh.ListenAndServe(
 		config.GlobalCfg.Sshd.Addr,
 		nil,
-<<<<<<< HEAD
-=======
 		ssh.PublicKeyAuth(sshd.publicKeyAuth),
->>>>>>> a088c805435ef66473494ece77c9bc914cade24d
 		ssh.PasswordAuth(sshd.passwordAuth),
 		ssh.HostKeyFile(config.GlobalCfg.Sshd.Key),
 		ssh.WrapConn(sshd.connCallback),
